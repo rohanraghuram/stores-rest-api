@@ -21,7 +21,7 @@ class Item(Resource):
         item = ItemModel.find_by_name(name)
         if item:
             return item.json()
-        return {"message":"item not found"}
+        return {"message":"item not found"}, 400
 
     def post(self,name):
         if ItemModel.find_by_name(name):
